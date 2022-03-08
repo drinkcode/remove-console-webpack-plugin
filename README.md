@@ -29,7 +29,7 @@ const RemoveConsolePlugin = require('remove-console-webpack-plugin')
 module.exports = {
   // other code ...
   plugins: [
-    new RemoveConsolePlugin()
+    new RemoveConsolePlugin({ include: ['log', 'warn', 'error'] })
   ]
 }
 
@@ -41,11 +41,11 @@ module.exports = {
   ]
 }
 
-// demo3: remove console.*
+// demo3: don't remove console.*
 module.exports = {
   // other code ...
   plugins: [
-    new RemoveConsolePlugin({ include: ['*'] })
+    new RemoveConsolePlugin({ include: [] })
   ]
 }
 ```
