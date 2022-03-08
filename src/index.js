@@ -29,6 +29,7 @@ class RemoveConsoleWebpackPlugin {
   apply(compiler) {
     // js 资源代码处理函数
     let assetsHandler = (assets, compilation) => {
+      if (this.removed.length == 0) return;
       let removedStr = this.removed.reduce((a, b) => (a + '|' + b));
 
       let reDict = {
